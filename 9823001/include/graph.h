@@ -15,6 +15,8 @@ public:
     std::vector<T> getNeighbors(T, std::function<bool(T, T)>);
     bool isConnected(T, T, std::function<bool(T, T)>);
 
+    void disp() const;
+
 private:
     class Node {
     public:

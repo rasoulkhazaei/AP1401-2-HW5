@@ -74,6 +74,19 @@ bool Graph<T>::isConnected(T source, T destination, std::function<bool(T, T)> fu
             return true;
     return false;
 }
+template <typename T>
+void Graph<T>::disp() const
+{
+    for (auto node : head) {
+        Node* current { node };
+        std::cout << "Vertex " << node->value << " -> ";
+        while (current->next) {
+            std::cout << current->value << " ";
+            current = current->next;
+        }
+        std::cout << std::endl;
+    }
+}
 
 // Part2
 
