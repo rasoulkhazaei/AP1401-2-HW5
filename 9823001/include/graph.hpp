@@ -65,6 +65,15 @@ std::vector<T> Graph<T>::getNeighbors(T vertex, std::function<bool(T, T)> func)
     }
     return neighbors;
 }
+template <typename T>
+bool Graph<T>::isConnected(T source, T destination, std::function<bool(T, T)> func)
+{
+    std::vector<T> neighbors { getNeighbors(source, func) };
+    for (auto x : neighbors)
+        if (func(x, destination))
+            return true;
+    return false;
+}
 
 // Part2
 
