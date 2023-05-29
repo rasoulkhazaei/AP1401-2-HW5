@@ -44,3 +44,11 @@ void deleteNode(Node*& root, int value)
         }
     }
 }
+Node* find(Node* root, int value)
+{
+    if (root == nullptr || root->value == value)
+        return root;
+    if (value < root->value)
+        return find(root->left, value);
+    return find(root->right, value);
+}
