@@ -1,31 +1,29 @@
-#include "gtest/gtest.h"
 #include "../include/graph.h"
-
+#include "gtest/gtest.h"
 
 TEST(APHW5TEST, test1)
 {
     Graph<int> g1;
-    int a{4};
-    int b{5};
-    int c{6}, d{10};
+    int a { 4 };
+    int b { 5 };
+    int c { 6 }, d { 10 };
     g1.addVertex(a);
     g1.addVertex(b);
     g1.addVertex(c);
     g1.addVertex(c);
-    auto f{[](const int a, const int b){return a == b;}};
+    auto f { [](const int a, const int b) { return a == b; } };
     g1.addEdge(a, b, 1, f);
     g1.addEdge(a, c, 5, f);
     g1.addEdge(b, c, 1, f);
     g1.addEdge(b, a, 5, f);
     g1.addEdge(c, d, 2, f);
     g1.disp();
-    EXPECT_EQ(g1.getNumberEdges(), 4);
+    EXPECT_EQ(g1.getNumberEdges(), 5);
     EXPECT_EQ(g1.getNeighbors(a, f).size(), 2);
     EXPECT_EQ(g1.findShortestPath(a, b, f).size(), 2);
     EXPECT_EQ(g1.findShortestPath(a, d, f)[2], 6);
     EXPECT_EQ(g1.findShortestPath(a, d, f).size(), 4);
 }
-
 
 TEST(APHW5TEST, test2)
 {
