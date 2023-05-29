@@ -1,5 +1,15 @@
 #include "graph.h"
 
+// Part1
+template <typename T>
+void Graph<T>::addVertex(const T& value)
+{
+    Node* node { new Node {} };
+    node->value = value;
+    head.push_back(node);
+}
+template <typename T>
+
 // Part2
 
 Node* insert(Node* root, int value)

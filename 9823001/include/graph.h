@@ -7,6 +7,10 @@
 template <typename T>
 class Graph {
 public:
+    Graph() = default;
+
+    void addVertex(const T&);
+
 private:
     class Node {
     public:
