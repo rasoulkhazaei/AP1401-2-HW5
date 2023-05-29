@@ -50,6 +50,21 @@ int Graph<T>::getNumEdges() const
     }
     return cnt;
 }
+template <typename T>
+std::vector<T> Graph<T>::getNeighbors(T vertex, std::function<bool(T, T)> func)
+{
+    std::vector<T> neighbors;
+    Node* node1 { nullptr };
+    for (auto node : head)
+        if (func(node->value, vertex))
+            node1 = node;
+    Node* current { node1 };
+    while (current->next) {
+        current = current->next;
+        neighbors.push_back(current->value);
+    }
+    return neighbors;
+}
 
 // Part2
 
