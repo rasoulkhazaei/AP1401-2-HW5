@@ -37,6 +37,19 @@ void Graph<T>::addEdge(const T& value1, const T& value2, int weight, std::functi
         current->weight = weight;
     }
 }
+template <typename T>
+int Graph<T>::getNumEdges() const
+{
+    int cnt {};
+    for (auto node : head) {
+        Node* current { node };
+        while (current->next) {
+            cnt++;
+            current = current->next;
+        }
+    }
+    return cnt;
+}
 
 // Part2
 
