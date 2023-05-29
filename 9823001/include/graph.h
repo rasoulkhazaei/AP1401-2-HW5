@@ -33,7 +33,7 @@ struct Node { //// for part 2
 Node* insert(Node*, int);
 void deleteNode(Node*&, int);
 Node* find(Node*, int);
-// void printInOrder(Node*);
+void printInOrder(Node*);
 
 #include "graph.hpp"
 

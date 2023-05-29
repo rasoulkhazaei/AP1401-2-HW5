@@ -52,3 +52,11 @@ Node* find(Node* root, int value)
         return find(root->left, value);
     return find(root->right, value);
 }
+void printInOrder(Node* root)
+{
+    if (root != nullptr) {
+        printInOrder(root->left);
+        std::cout << root->value << " ";
+        printInOrder(root->right);
+    }
+}
